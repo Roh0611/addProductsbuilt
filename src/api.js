@@ -245,13 +245,10 @@ router.put("/products/:id", isAdmin, async (req, res) => {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 const app = express();
-require("dotenv").config();
-router.use(cors());
-router.use(bodyParser.json({ limit: '10mb' }));
-router.use(bodyParser.urlencoded({ extended: true, limit: '10mb' }));
-
-// router.use("/register", register);
-// router.use("/login", login);
+require('dotenv').config();
+app.use(cors()); // enable CORS
+app.use(bodyParser.json({ limit: '10mb' }));
+app.use(bodyParser.urlencoded({ extended: true, limit: '10mb' }));
 
 router.get("/", (req, res) => {
     res.json({
